@@ -1,10 +1,14 @@
 @import "tailwindcss";
 
+/* Theme color variables based on requested palette */
 :root {
-  --color-primary: #000000;
-  --color-secondary: #FFFFFF;
-  --color-accent: #3B82F6;
-  --color-background: #FFFFFF;
+  --color-primary: #1a73e8;   /* Primary */
+  --color-accent: #34a853;    /* Accent */
+  --color-secondary: #fbbc05; /* Secondary */
+  --color-background: #ffffff;
+  --color-foreground: #111827;
+  --color-muted: #6b7280;
+  --color-border: #e5e7eb;
 }
 
 * {
@@ -18,9 +22,82 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   background-color: var(--color-background);
-  color: var(--color-primary);
+  color: var(--color-foreground);
 }
 
 body {
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+/* Utility tokens */
+.text-muted {
+  color: var(--color-muted);
+}
+
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container { max-width: 640px; }
+}
+@media (min-width: 768px) {
+  .container { max-width: 768px; }
+}
+@media (min-width: 1024px) {
+  .container { max-width: 1024px; }
+}
+@media (min-width: 1280px) {
+  .container { max-width: 1280px; }
+}
+
+/* Buttons */
+.btn {
+  @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors;
+  border: 1px solid var(--color-border);
+}
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+  border-color: transparent;
+}
+.btn-primary:hover {
+  filter: brightness(0.95);
+}
+.btn-secondary {
+  background-color: var(--color-secondary);
+  color: #1f2937;
+  border-color: transparent;
+}
+.btn-outline {
+  background-color: white;
+  color: var(--color-foreground);
+}
+.btn-outline:hover {
+  background-color: #f9fafb;
+}
+
+/* Inputs */
+.input {
+  @apply w-full rounded-md border px-3 py-2 text-sm outline-none;
+  border-color: var(--color-border);
+}
+.input:focus {
+  box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.15);
+  border-color: var(--color-primary);
+}
+
+/* Cards */
+.card {
+  @apply rounded-lg border bg-white;
+  border-color: var(--color-border);
+}
+
+/* Header shadow */
+.header {
+  box-shadow: 0 1px 0 0 var(--color-border);
 }
